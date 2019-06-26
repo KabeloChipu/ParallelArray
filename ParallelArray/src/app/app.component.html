@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="200" alt="Angular Logo" src="../assets/image/To_Do_List-512.png">
+</div>
+<h2 *ngIf = "empty">Please enter yout task and Priority</h2>
+
+
+<input placeholder="Please enter a Task" [(ngModel)] = "TaskNames" onfocus="this.value = ''" class = "textarea"/>
+<input placeholder="Please enter a Priority" [(ngModel)] = "PriorityNames" onfocus="this.value = ''" class = "textarea"/>
+
+<button (click) = "AddNewTask()"><mat-icon>add</mat-icon></button>
+
+
+
+<ul *ngFor = "let Tasks of Task">
+  {{Tasks.TaskName}} 
+  {{Tasks.Priority}}
+
+  <button (click) = "RemoveTask(Tasks, TaskNames)"><mat-icon>delete</mat-icon></button>
+   <button (click) = "EditTask(Tasks, Priorities)"><mat-icon>edit</mat-icon></button>
+</ul>
+<h2 *ngIf = "empty">You do not have any items</h2>
